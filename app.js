@@ -7,6 +7,7 @@ const logger = new Logger();
 function sayHello(name) {
   console.log('Hello ' + name);
 }
+
 sayHello('Staf');
 logger.on('messageLogged', (arg) => {
   console.log('Listener called', arg);
