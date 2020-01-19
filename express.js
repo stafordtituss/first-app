@@ -4,13 +4,14 @@ const app = express();
 const morgan = require('morgan');
 app.use(morgan('short'));
 app.set('view engine', 'ejs');
+app.use('/assets', express.static('assets'));
 app.get("/", (req, res) => {
   console.log("Responding to the root route");
-  res.sendFile(__dirname + '/index.html');
+  res.render('index');
 });
 app.get("/contact", (req, res) => {
   console.log("Responding to the root route");
-  res.sendFile(__dirname + '/contact.html');
+  res.render('contact');
 });
 app.get("/users", (req, res) => {
   var user1 = {firstName: "Staford", lastName: "Titus S"}
@@ -19,7 +20,7 @@ app.get("/users", (req, res) => {
   res.send("Nodemon autoupdates when file is saved");
 });
 app.get('/profile/:name', (req, res) => {
-  var data = {age: 21, job: 'hacker'};
+  var data = {age: 21, job: 'hacker', hobbies: ['hacking', 'reading', 'gaming']};
   res.render('profile', {person: req.params.name, data: data});
 });
 
