@@ -1,7 +1,9 @@
 
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
+var urlencodedParser = bodyParser.urlencoded({ extended: false});
 app.use(morgan('short'));
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
@@ -10,8 +12,11 @@ app.get("/", (req, res) => {
   res.render('index');
 });
 app.get("/contact", (req, res) => {
-  console.log("Responding to the root route");
-  res.render('contact');
+  res.render('contact', {qs: req.query});
+});
+app.post("/contact", urlencodedParser, (req, res) => {
+  console.log(req.body);
+  res.render('contact-success', {data: req.body});
 });
 app.get("/users", (req, res) => {
   var user1 = {firstName: "Staford", lastName: "Titus S"}

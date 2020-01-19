@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pipes Test Website</title>
+    <style media="screen">
+      body{background: skyblue; font-family: verdana; color: #fff; padding: 30px;}
+      h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+      p{font-size: 16px; text-align: center;}
+    </style>
+  </head>
+  <body>
+    <%- include ('partials/nav.ejs') %>
+    <h1>Contact SUCCESSFUL</h1>
+    <p>Thank you for contacting!!</p>
+    <p>You contacted <%= data.who %> from the <%= data.department %> department !!</p>
+    <p>We will get back to you at <%= data.email %></p>
+  </body>
+</html>

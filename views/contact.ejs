@@ -13,5 +13,14 @@
     <%- include ('partials/nav.ejs') %>
     <h1>Contact Us</h1>
     <p>This is just a test website for testing the expressJS in NodeJS!!</p>
+    <form id="contact-form" method="POST" action="/contact">
+      <label for="who">Who do you want to contact?</label><br>
+      <input type="text" name="who" value="<%= qs.person %>"><br>
+      <label for="department">Which Department?</label><br>
+      <input type="text" name="department" value="<%= qs.dept %>"><br>
+      <label for="email">Your Email</label><br>
+      <input type="text" name="email" value=""><br>
+      <input type="submit" name="" value="submit"><br>
+    </form>
   </body>
 </html>
